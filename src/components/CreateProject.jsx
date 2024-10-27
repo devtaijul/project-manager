@@ -9,10 +9,10 @@ const CreateProject = () => {
   };
   return (
     <>
-      <ProjectModal show={show} onHide={handleHide} />
+      {show && <ProjectModal onHide={handleHide} />}
       <button
         className="flex items-center rounded-md bg-gray-700 px-4 py-2 text-white"
-        onClick={(e) => {
+        onClick={() => {
           setShow(true);
         }}
       >
