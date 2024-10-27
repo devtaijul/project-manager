@@ -115,7 +115,7 @@ const ProjectModal = ({ onHide = () => {}, mode = "create", project }) => {
       <div className="w-full max-w-md rounded-lg bg-gray-800 shadow-xl z-10">
         <div className="p-6">
           <h2 className="mb-6 text-2xl font-bold text-green-400">
-            Create Task
+            {mode === "create" ? "Create New Task" : "Update Task"}
           </h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
