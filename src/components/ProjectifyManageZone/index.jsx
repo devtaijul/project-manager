@@ -18,7 +18,7 @@ const ProjectManageZone = () => {
       {/* On Progress */}
       <CategoryCard
         className="bg-yellow-500"
-        category="on-progress"
+        category="inprogress"
         projects={state.projects}
         title="On Progress"
       />

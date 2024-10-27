@@ -11,7 +11,7 @@ const initialState = {
       id: "2",
       taskName: "Projectify",
       description: "A project management tool",
-      category: "on-progress",
+      category: "inprogress",
       dueDate: "2021-09-01",
     },
     {
