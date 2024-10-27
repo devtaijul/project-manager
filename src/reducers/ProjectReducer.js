@@ -1,34 +1,5 @@
 const initialState = {
-  projects: [
-    {
-      id: "1",
-      taskName: "Projectify",
-      description: "A project management tool",
-      category: "todo",
-      dueDate: "2021-09-01",
-    },
-    {
-      id: "2",
-      taskName: "Projectify",
-      description: "A project management tool",
-      category: "inprogress",
-      dueDate: "2021-09-01",
-    },
-    {
-      id: "3",
-      taskName: "Projectify",
-      description: "A project management tool",
-      category: "done",
-      dueDate: "2021-09-01",
-    },
-    {
-      id: "4",
-      taskName: "Projectify",
-      description: "A project management tool",
-      category: "revised",
-      dueDate: "2021-09-01",
-    },
-  ],
+  projects: [],
 };
 
 const projectReducer = (state = initialState, action) => {

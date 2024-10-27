@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 
+import { useState } from "react";
 import { SortIcon } from "../../icons/Icons";
 import { cn, formatDate } from "../../utils/common";
 import DeleteProject from "./DeleteProject";
@@ -11,9 +12,16 @@ const CategoryCard = ({
   projects = [],
   title = "",
 }) => {
-  const filteredProjects = projects.filter(
-    (project) => project.category === category
-  );
+  const [sort, setSort] = useState("asc");
+
+  const filteredProjects = projects
+    .filter((project) => project.category === category)
+    .sort((a, b) => {
+      if (sort === "asc") {
+        return new Date(a.dueDate) - new Date(b.dueDate);
+      }
+      return new Date(b.dueDate) - new Date(a.dueDate);
+    });
 
   return (
     <div className="mb-4 w-full px-2 sm:w-1/2 md:w-1/4">
@@ -22,7 +30,16 @@ const CategoryCard = ({
           <h3 className="text-lg font-semibold">
             {title} ({filteredProjects.length})
           </h3>
-          <SortIcon />
+          <button
+            onClick={() =>
+              setSort((prev) => {
+                if (prev === "asc") return "desc";
+                return "asc";
+              })
+            }
+          >
+            <SortIcon />
+          </button>
         </div>
         <div>
           {filteredProjects.length ? (
@@ -41,12 +58,12 @@ const CategoryCard = ({
                   {project.description}
                 </p>
                 <p className="mt-6 text-xs text-zinc-400">
-                  {formatDate(project.date)}
+                  {formatDate(project.dueDate)}
                 </p>
               </div>
             ))
           ) : (
-            <p className="text-white text-center">No task available</p>
+            <p className="text-white text-center">Task List is empty!</p>
           )}
         </div>
         {/* Add more task cards here */}
