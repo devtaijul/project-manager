@@ -3,7 +3,7 @@
 export const projects = [
   {
     id: 1,
-    name: "Content Writer Content Writer Content Writer",
+    name: "Content Writer ",
     description: "Prepare proctor for client meeting",
     date: "2021-10-10",
     status: "todo",
